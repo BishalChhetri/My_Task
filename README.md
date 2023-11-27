@@ -1,6 +1,6 @@
 # Getting Started with Create React App
 
-This project was simple task to add the name ans sectors involved for that person.
+This project was simple task to add the name and sectors involved for that person.
 
 ## Available Scripts
 
@@ -10,7 +10,9 @@ In the project directory, you can run:
 
 Runs the app in the development mode.
 
-Before running the application, please create the .env files and save the mysql password in the form of "REACT_APP_MYSQL_PW=****"
+### Steps involved to run this application
+
+Before running the application, Create the .env files and save the mysql password in the form of "REACT_APP_MYSQL_PW=****"
 
 Locate the directory where MySQL dump file is saved.
 
