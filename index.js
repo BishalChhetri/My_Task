@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 var corOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://my-task-git-main-bishalchhetri.vercel.app/",
 };
 
 app.use(cors(corOptions));
@@ -34,7 +34,10 @@ app.use("/api/sector", sectorRouter);
 
 // testing api
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://my-task-git-main-bishalchhetri.vercel.app/"
+  );
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"

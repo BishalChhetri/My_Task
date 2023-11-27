@@ -25,7 +25,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "npm-run-all -p start:react start:server",
+    "start": "npm-run-all -p start:react",
     "start:react": "react-scripts start",
     "start:server": "env-cmd -f ./.env nodemon index.js",
     "build": "react-scripts build",
