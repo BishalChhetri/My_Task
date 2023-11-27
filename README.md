@@ -12,14 +12,17 @@ Runs the app in the development mode.
 
 ### Steps involved to run this application
 
-Before running the application, Create the .env files and save the mysql password in the form of "REACT_APP_MYSQL_PW=****"
+Create .env files: Before running the application, create a .env file in the project root and save the environment variables:
+REACT_APP_MYSQL_PW=****
+REACT_APP_SERVER_URL=http://localhost:8080
 
-Locate the directory where MySQL dump file is saved.
+Locate MySQL dump file: Find the directory where your MySQL dump file is saved.
 
-Use command to import the SQL dump into your database.
+Create a database: Create a new database and ensure that the database configuration file is updated with the name of the newly created database.
 
+Import SQL dump: Use the MySQL command-line tool to import the SQL dump into your created database:
 mysql -u your_username -p your_database_name < dump_file.sql
 
-After all the setup run npm install or yarn add to import all the necessary modules.
+Install necessary modules: Run npm install or yarn add to import all the required modules specified in package.json.
 
-To start the application, please run command "npm run start"
+Start the application: Run the command npm run start to start the application.
