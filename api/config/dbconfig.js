@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: "localhost",
-  USER: "root",
-  PASSWORD: process.env.REACT_APP_MYSQL_PW,
-  DB: "task_new",
+  HOST: "sql12.freesqldatabase.com",
+  USER: "sql12665436",
+  PASSWORD: "czbDwQIj85",
+  DB: "sql12665436",
   dialect: "mysql",
 
   pool: {
