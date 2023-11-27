@@ -6,7 +6,7 @@ This project was simple task to add the name and sectors involved for that perso
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm run start`
 
 Runs the app in the development mode.
 
