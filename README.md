@@ -20,7 +20,7 @@ Locate MySQL dump file: Find the directory where your MySQL dump file is saved.
 
 Create a database: Create a new database and ensure that the database configuration file is updated with the name of the newly created database.
 
-mysqldump -u your_username -p your_database_name < dump_file.sql
+mysql -u your_username -p your_database_name < dump_file.sql
 
 Install necessary modules: Run npm install or yarn add to import all the required modules specified in package.json.
 
