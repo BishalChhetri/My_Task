@@ -18,7 +18,7 @@ Locate the directory where MySQL dump file is saved.
 
 Use command to import the SQL dump into your database.
 
-mysql -u your_username -p your_database_name < dump_file.sql
+mysqldump -u your_username -p your_database_name < dump_file.sql
 
 After all the setup run npm install or yarn add to import all the necessary modules.
 
