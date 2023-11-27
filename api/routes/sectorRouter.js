@@ -1,9 +1,9 @@
-// const sectorController = require("../controllers/sectorController.js");
+const sectorController = require("../controllers/sectorController.js");
 
-// const express = require("express");
+const express = require("express");
 
-// const router = express();
+const sectorRouter = express();
 
-// router.get("/getAllSector", sectorController.getAllSectors);
+sectorRouter.get("/getAllSector", sectorController.getAllSector);
 
-// module.exports = router;
+module.exports = sectorRouter;

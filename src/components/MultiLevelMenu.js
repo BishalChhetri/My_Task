@@ -1,11 +1,14 @@
 import React from "react";
 import Dropdown from "react-multilevel-dropdown";
 import { useState, useEffect } from "react";
+import axios from "axios";
+import { convertDatasets } from "../convertDatasets.js";
 
-const MultiLevelMenu = ({ menuItems, setFormData, formData }) => {
+const MultiLevelMenu = ({ setFormData, formData }) => {
   const [store, setStore] = useState([]);
   const [title, setTitle] = useState("Sectors");
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [menuItems, setMenuItems] = useState({});
 
   const handleClick = (title) => {
     setStore(store.push(title));
@@ -21,6 +24,17 @@ const MultiLevelMenu = ({ menuItems, setFormData, formData }) => {
     setTitle(formData?.sectors || "Sectors");
   }, [store, formData]);
 
+  const fetchMenuItems = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/api/sector/getAllSector`
+    );
+    setMenuItems(convertDatasets(data));
+  };
+
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
+
   const renderSubMenu = (submenu) => {
     if (!submenu || submenu.length === 0) {
       return null;
@@ -28,7 +42,7 @@ const MultiLevelMenu = ({ menuItems, setFormData, formData }) => {
 
     return (
       <Dropdown.Submenu position="right">
-        {submenu.map((subItem) => (
+        {submenu?.map((subItem) => (
           <Dropdown.Item
             key={subItem.title}
             onClick={() => {
@@ -44,7 +58,7 @@ const MultiLevelMenu = ({ menuItems, setFormData, formData }) => {
   };
 
   const renderMenu = (items) => {
-    return items.map((item) => (
+    return items?.map((item) => (
       <Dropdown.Item
         key={item.title}
         position="right"
@@ -58,14 +72,16 @@ const MultiLevelMenu = ({ menuItems, setFormData, formData }) => {
 
   return (
     <div>
-      <Dropdown
-        title={title}
-        position="top-right"
-        buttonVariant="special-success"
-        isDisabled={dropdownOpen}
-      >
-        {renderMenu(menuItems)}
-      </Dropdown>
+      {menuItems.length > 0 && (
+        <Dropdown
+          title={title}
+          position="top-right"
+          buttonVariant="special-success"
+          isDisabled={dropdownOpen}
+        >
+          {renderMenu(menuItems)}
+        </Dropdown>
+      )}
     </div>
   );
 };

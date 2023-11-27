@@ -10,6 +10,6 @@ router.get("/getAllInfo", infoController.getAllInfo);
 router.get("/:id", infoController.getOneInfo);
 router.put("/:id", infoController.updateInfo);
 router.delete("/:id", infoController.deleteInfo);
-router.get("/getAllSector", sectorController.getAllSectors);
+router.get("/getAllSector", sectorController.getAllSector);
 
 module.exports = router;

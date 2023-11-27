@@ -1,5 +1,4 @@
 import MultiLevelMenu from "./MultiLevelMenu";
-import { menuItems } from "../menuItems";
 import { useState, useEffect } from "react";
 import { useSnackbar } from "notistack";
 import axios from "axios";
@@ -50,7 +49,7 @@ const FormBody = function () {
     if (!update) {
       try {
         const { data } = await axios.post(
-          "http://localhost:8080/api/info/addInformation",
+          `${process.env.REACT_APP_SERVER_URL}/api/info/addInformation`,
           {
             name: formData?.name,
             sectors: formData?.sectors,
@@ -67,7 +66,7 @@ const FormBody = function () {
       try {
         const id = formData?.id;
         const { data } = await axios.put(
-          `http://localhost:8080/api/info/${id}`,
+          `${process.env.REACT_APP_SERVER_URL}/api/info/${id}`,
           {
             name: formData?.name,
             sectors: formData?.sectors,
@@ -142,16 +141,11 @@ const FormBody = function () {
               </label>
               {isMobile ? (
                 <SingleLevelMenu
-                  menuItems={menuItems}
                   formData={formData}
                   setFormData={setFormData}
                 ></SingleLevelMenu>
               ) : (
-                <MultiLevelMenu
-                  menuItems={menuItems}
-                  formData={formData}
-                  setFormData={setFormData}
-                />
+                <MultiLevelMenu formData={formData} setFormData={setFormData} />
               )}
             </div>
             <div className="py-2 text-start">

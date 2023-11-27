@@ -1,24 +1,38 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Select from "react-select";
+import axios from "axios";
+import { convertDatasets } from "../convertDatasets.js";
 
-const SingleLevelMenu = ({ menuItems, setFormData, formData }) => {
+const SingleLevelMenu = ({ setFormData, formData }) => {
   const [store, setStore] = useState([]);
   const [menuItem, setMenuItem] = useState([]);
   const [defaultValue, setDefaultValue] = useState({});
+  const [menuItems, setMenuItems] = useState({});
 
   const handleClick = (title) => {
     setStore(store.push(title?.value));
     setFormData({ ...formData, sectors: store[0] });
   };
 
+  const fetchMenuItems = async () => {
+    const { data } = await axios.get(
+      `${process.env.REACT_APP_SERVER_URL}/api/sector/getAllSector`
+    );
+    setMenuItems(convertDatasets(data));
+  };
+
+  useEffect(() => {
+    fetchMenuItems();
+  }, []);
+
   const flattenMenu = (menuItems, parentTitle = "") => {
     let result = [];
 
-    menuItems.forEach((item) => {
+    menuItems?.forEach((item) => {
       const { title, submenu } = item;
 
-      if (submenu) {
+      if (submenu && submenu.length > 0) {
         const subMenuTitles = flattenMenu(submenu, title);
         result = result.concat(subMenuTitles);
       } else {
@@ -33,11 +47,11 @@ const SingleLevelMenu = ({ menuItems, setFormData, formData }) => {
   };
 
   useEffect(() => {
-    if (menuItem.length === 0) {
+    if (menuItem.length === 0 && menuItems.length > 0) {
       const flattenedMenu = flattenMenu(menuItems);
       setMenuItem(flattenedMenu);
     }
-  }, []);
+  }, [menuItems]);
 
   useEffect(() => {
     if (Number.isInteger(store)) {

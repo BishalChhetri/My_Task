@@ -28,7 +28,9 @@ app.use(cookieParser());
 
 // routers
 const router = require("./api/routes/infoRouter.js");
+const sectorRouter = require("./api/routes/sectorRouter.js");
 app.use("/api/info", router);
+app.use("/api/sector", sectorRouter);
 
 // testing api
 app.use((req, res, next) => {
