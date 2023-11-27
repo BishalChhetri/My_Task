@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 var corOptions = {
-  origin: "https://my-task-git-main-bishalchhetri.vercel.app/",
+  origin: "https://my-task-git-main-bishalchhetri.vercel.app",
 };
 
 app.use(cors(corOptions));
@@ -36,7 +36,7 @@ app.use("/api/sector", sectorRouter);
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://my-task-git-main-bishalchhetri.vercel.app/"
+    "https://my-task-git-main-bishalchhetri.vercel.app"
   );
   res.header(
     "Access-Control-Allow-Headers",
