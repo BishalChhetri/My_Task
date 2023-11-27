@@ -49,7 +49,7 @@ const FormBody = function () {
     if (!update) {
       try {
         const { data } = await axios.post(
-          `${process.env.REACT_APP_SERVER_URL}/api/info/addInformation`,
+          `https://my-task-bishalkc.onrender.com/api/info/addInformation`,
           {
             name: formData?.name,
             sectors: formData?.sectors,
@@ -66,7 +66,7 @@ const FormBody = function () {
       try {
         const id = formData?.id;
         const { data } = await axios.put(
-          `${process.env.REACT_APP_SERVER_URL}/api/info/${id}`,
+          `https://my-task-bishalkc.onrender.com/api/info/${id}`,
           {
             name: formData?.name,
             sectors: formData?.sectors,

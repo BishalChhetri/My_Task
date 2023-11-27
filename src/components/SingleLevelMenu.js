@@ -17,7 +17,7 @@ const SingleLevelMenu = ({ setFormData, formData }) => {
 
   const fetchMenuItems = async () => {
     const { data } = await axios.get(
-      `${process.env.REACT_APP_SERVER_URL}/api/sector/getAllSector`
+      `https://my-task-bishalkc.onrender.com/api/sector/getAllSector`
     );
     setMenuItems(convertDatasets(data));
   };
