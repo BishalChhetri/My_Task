@@ -3,8 +3,9 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 import { convertDatasets } from "../convertDatasets.js";
+import { ColorRing } from "react-loader-spinner";
 
-const SingleLevelMenu = ({ setFormData, formData }) => {
+const SingleLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
   const [store, setStore] = useState([]);
   const [menuItem, setMenuItem] = useState([]);
   const [defaultValue, setDefaultValue] = useState({});
@@ -20,6 +21,7 @@ const SingleLevelMenu = ({ setFormData, formData }) => {
       `https://my-task-bishalkc.onrender.com/api/sector/getAllSector`
     );
     setMenuItems(convertDatasets(data));
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -74,14 +76,31 @@ const SingleLevelMenu = ({ setFormData, formData }) => {
 
   return (
     <div className="flex justify-center">
-      <Select
-        options={menuItem}
-        styles={customStyles}
-        placeholder="Sectors"
-        isSearchable={true}
-        onChange={handleClick}
-        value={defaultValue || null}
-      />
+      {loading ? (
+        <div className="max-w-[400px] w-full mx-auto bg-white p-4">
+          <div className="flex justify-center text-center mx-auto">
+            <label></label>
+            <ColorRing
+              visible={true}
+              height="35"
+              width="35"
+              ariaLabel="blocks-loading"
+              wrapperStyle={{}}
+              wrapperClass="blocks-wrapper"
+              colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+            />
+          </div>
+        </div>
+      ) : (
+        <Select
+          options={menuItem}
+          styles={customStyles}
+          placeholder="Sectors"
+          isSearchable={true}
+          onChange={handleClick}
+          value={defaultValue || null}
+        />
+      )}
     </div>
   );
 };

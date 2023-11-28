@@ -17,6 +17,7 @@ const FormBody = function () {
     sectors: "",
     agreement: false,
   });
+  const [loading, setLoading] = useState(true);
 
   const handleError = (message) => {
     enqueueSnackbar(message, {
@@ -123,6 +124,7 @@ const FormBody = function () {
               Please enter your name and pick the Sectors you are currently
               involved in.{" "}
             </p>
+
             <div className="flex flex-col py-2">
               <label className="text-start">
                 Name <label className="text-red-700">*</label>
@@ -143,9 +145,16 @@ const FormBody = function () {
                 <SingleLevelMenu
                   formData={formData}
                   setFormData={setFormData}
+                  loading={loading}
+                  setLoading={setLoading}
                 ></SingleLevelMenu>
               ) : (
-                <MultiLevelMenu formData={formData} setFormData={setFormData} />
+                <MultiLevelMenu
+                  formData={formData}
+                  setFormData={setFormData}
+                  loading={loading}
+                  setLoading={setLoading}
+                />
               )}
             </div>
             <div className="py-2 text-start">
