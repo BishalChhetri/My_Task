@@ -22,6 +22,10 @@ Create a database: Create a new database and ensure that the database configurat
 
 mysql -u your_username -p your_database_name < dump_file.sql
 
+Change db.config file as per your local PC infornation.
+
+If the cors error persist then corsOption to localhost port number.
+
 Install necessary modules: Run npm install or yarn add to import all the required modules specified in package.json.
 
 Start the application: Run the command npm run start to start the application.
