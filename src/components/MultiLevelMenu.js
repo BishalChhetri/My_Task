@@ -73,7 +73,7 @@ const MultiLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
   };
 
   return (
-    <div>
+    <div className="bg-transparent">
       {loading ? (
         <div className="max-w-[400px] w-full mx-auto bg-white p-4 bg-transparent">
           <div className="flex justify-center text-center mx-auto bg-transparent">
