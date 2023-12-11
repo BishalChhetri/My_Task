@@ -5,6 +5,7 @@ import axios from "axios";
 import { FaCheckCircle } from "react-icons/fa";
 import { isMobile } from "react-device-detect";
 import SingleLevelMenu from "./SingleLevelMenu";
+import "../App.scss";
 
 const FormBody = function () {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
@@ -113,10 +114,10 @@ const FormBody = function () {
 
   return (
     <div className="grid h-screen w-full">
-      <div className="bg-gray-100 flex flex-col justify-center">
+      <div className="bg-gray-100 flex flex-col justify-center backgroundImg">
         {!success ? (
           <form
-            className="max-w-[400px] w-full mx-auto bg-white p-4"
+            className="max-w-[400px] w-full mx-auto taskContainer p-4 rounded-[12px]"
             onSubmit={handleSubmit}
           >
             <h1 className="text-4xl font-bold text-center py-4">Task</h1>
@@ -130,9 +131,10 @@ const FormBody = function () {
                 Name <label className="text-red-700">*</label>
               </label>
               <input
-                className="border p-2"
+                className="border-b-2 border-black p-2 bg-transparent hover:border-b-2 transition-colors duration-300 hover:border-yellow-400 outline-none"
                 type="text"
                 name="name"
+                autoComplete="off"
                 value={formData.name}
                 onChange={handleInputChange}
               />
@@ -171,12 +173,12 @@ const FormBody = function () {
                 Agree to the terms
               </label>
             </div>
-            <button className="border w-full my-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white">
+            <button className="w-full my-5 py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 text-white rounded-[18px]">
               {update ? "Update" : "Save"}
             </button>
           </form>
         ) : (
-          <div className="max-w-[400px] w-full mx-auto bg-white p-4 ">
+          <div className="max-w-[400px] w-full mx-auto taskContainer bg-white p-4 rounded-[12px]">
             <div className="flex flex-col justify-center ">
               <FaCheckCircle
                 size={"40px"}
@@ -186,30 +188,30 @@ const FormBody = function () {
               <label className="text-center text-xl mt-1">
                 Successfully saved!
               </label>
-              <table className="min-w-full divide-y divide-gray-200 my-8">
-                <thead className="bg-gray-50">
+              <table className="min-w-full divide-y divide-black my-8">
+                <thead className="bg-transparent">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-black font-extrabold uppercase tracking-wider">
                       Name
                     </th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    <th className="px-6 py-3 text-left text-sm font-medium text-black font-extrabold uppercase tracking-wider">
                       Sector
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-transparent divide-y divide-black">
                   <tr>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 whitespace-nowrap text-start">
                       {formData?.name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                    <td className="px-6 py-4 whitespace-nowrap text-start">
                       {formData?.sectors}
                     </td>
                   </tr>
                 </tbody>
               </table>
               <button
-                className="border w-full my-1 py-2 bg-indigo-600 hover:bg-indigo-500 text-white"
+                className="w-full py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 text-white rounded-[18px]"
                 onClick={() => {
                   setSuccess(false);
                   setUpdate(true);
@@ -218,7 +220,7 @@ const FormBody = function () {
                 Update
               </button>
               <button
-                className="border w-full py-2 bg-red-500 hover:bg-red-400 text-white"
+                className="w-full my-3 py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 text-white rounded-[18px]"
                 onClick={handleLogoutSession}
               >
                 Logout Session

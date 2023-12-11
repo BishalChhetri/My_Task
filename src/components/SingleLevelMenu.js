@@ -77,7 +77,7 @@ const SingleLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
   return (
     <div className="flex justify-center">
       {loading ? (
-        <div className="max-w-[400px] w-full mx-auto bg-white p-4">
+        <div className="max-w-[400px] w-full mx-auto bg-white p-4 bg-transparent">
           <div className="flex justify-center text-center mx-auto">
             <label></label>
             <ColorRing
@@ -97,6 +97,7 @@ const SingleLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
           styles={customStyles}
           placeholder="Sectors"
           isSearchable={true}
+          className="text-black border border-black rounded-[5px] hover:border-black"
           onChange={handleClick}
           value={defaultValue || null}
         />

@@ -75,7 +75,7 @@ const MultiLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
   return (
     <div>
       {loading ? (
-        <div className="max-w-[400px] w-full mx-auto bg-white p-4">
+        <div className="max-w-[400px] w-full mx-auto bg-white p-4 bg-transparent">
           <div className="flex justify-center text-center mx-auto">
             <label></label>
             <ColorRing
@@ -95,7 +95,8 @@ const MultiLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
             <Dropdown
               title={title}
               position="top-right"
-              buttonVariant="special-success"
+              buttonVariant="special"
+              className="text-black border border-black px-3 py-2 rounded-[5px]"
               isDisabled={dropdownOpen}
             >
               {renderMenu(menuItems)}
