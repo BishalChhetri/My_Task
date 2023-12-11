@@ -211,7 +211,7 @@ const FormBody = function () {
                 </tbody>
               </table>
               <button
-                className="w-full py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 text-white rounded-[18px]"
+                className="w-full py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 rounded-[18px]"
                 onClick={() => {
                   setSuccess(false);
                   setUpdate(true);
@@ -220,7 +220,7 @@ const FormBody = function () {
                 Update
               </button>
               <button
-                className="w-full my-3 py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 text-white rounded-[18px]"
+                className="w-full my-3 py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 rounded-[18px]"
                 onClick={handleLogoutSession}
               >
                 Logout Session
