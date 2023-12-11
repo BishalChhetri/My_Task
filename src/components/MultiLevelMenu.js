@@ -76,7 +76,7 @@ const MultiLevelMenu = ({ setFormData, formData, loading, setLoading }) => {
     <div>
       {loading ? (
         <div className="max-w-[400px] w-full mx-auto bg-white p-4 bg-transparent">
-          <div className="flex justify-center text-center mx-auto">
+          <div className="flex justify-center text-center mx-auto bg-transparent">
             <label></label>
             <ColorRing
               visible={true}
