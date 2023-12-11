@@ -139,7 +139,7 @@ const FormBody = function () {
                 onChange={handleInputChange}
               />
             </div>
-            <div className="flex flex-col py-2">
+            <div className="flex flex-col py-2 bg-transparent">
               <label className="text-start">
                 Sectors <label className="text-red-700">*</label>
               </label>
