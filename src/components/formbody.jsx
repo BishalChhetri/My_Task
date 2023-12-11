@@ -173,7 +173,7 @@ const FormBody = function () {
                 Agree to the terms
               </label>
             </div>
-            <button className="w-full my-5 py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 text-white rounded-[18px]">
+            <button className="w-full my-5 py-2 text-black text-bold bg-gray-100 hover:bg-gray-500 rounded-[18px]">
               {update ? "Update" : "Save"}
             </button>
           </form>
