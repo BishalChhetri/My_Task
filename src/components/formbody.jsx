@@ -178,7 +178,7 @@ const FormBody = function () {
             </button>
           </form>
         ) : (
-          <div className="max-w-[400px] w-full mx-auto taskContainer bg-white p-4 rounded-[12px]">
+          <div className="max-w-[400px] w-full mx-auto taskContainer bg-transparent p-4 rounded-[12px]">
             <div className="flex flex-col justify-center ">
               <FaCheckCircle
                 size={"40px"}
