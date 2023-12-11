@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const app = express();
 
 var corOptions = {
-  origin: "https://my-task-git-main-bishalchhetri.vercel.app",
+  origin: ["https://my-task-git-main-bishalchhetri.vercel.app", "http://localhost:3000/"],
 };
 
 app.use(cors(corOptions));
