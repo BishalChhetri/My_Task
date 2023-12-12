@@ -23,13 +23,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // routers
-const router = require("./src/api/routes/infoRouter.js");
-const sectorRouter = require("./src/api/routes/sectorRouter.js");
-app.use("/src/api/info", router);
-app.use("/src/api/sector", sectorRouter);
+const router = require(".src/api/routes/infoRouter.js");
+const sectorRouter = require(".src/api/routes/sectorRouter.js");
+app.use("/api/info", router);
+app.use("/api/sector", sectorRouter);
 
 // testing api
-// Default CORS headers for all routes
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   res.header(
