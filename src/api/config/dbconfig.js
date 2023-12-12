@@ -1,8 +1,8 @@
 module.exports = {
-  HOST: process.env.REACT_APP_SERVER_URL,
-  USER: process.env.REACT_APP_MYSQL_USER,
-  PASSWORD: process.env.REACT_APP_MYSQL_PW,
-  DB: process.env.REACT_APP_MYSQL_USER,
+  HOST: process.env.REACT_APP_SERVER_URL || "sql12.freesqldatabase.com",
+  USER: process.env.REACT_APP_MYSQL_USER || "sql12669442",
+  PASSWORD: process.env.REACT_APP_MYSQL_PW || "x9WXCRQ2ic",
+  DB: process.env.REACT_APP_MYSQL_USER || "sql12669442",
   dialect: "mysql",
   PORT: "3306",
 
