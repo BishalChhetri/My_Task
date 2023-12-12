@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // routers
-const router = require(".src/api/routes/infoRouter.js");
-const sectorRouter = require(".src/api/routes/sectorRouter.js");
+const router = require("./src/api/routes/infoRouter.js");
+const sectorRouter = require("./src/api/routes/sectorRouter.js");
 app.use("/api/info", router);
 app.use("/api/sector", sectorRouter);
 
