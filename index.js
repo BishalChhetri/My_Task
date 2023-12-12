@@ -4,25 +4,17 @@ const cookieParser = require("cookie-parser");
 
 const app = express();
 
-var corOptions = {
+var corsOptions = {
   origin: [
     "https://my-task-git-main-bishalchhetri.vercel.app",
-    "http://localhost:3000/",
+    "http://localhost:3000",
     "https://my-task-bishalkc.onrender.com",
   ],
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  allowedHeaders: "Content-Type",
 };
 
-app.use(cors(corOptions));
-
-app.options("*", cors());
-var allowCrossDomain = function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-  next();
-};
-
-app.use(allowCrossDomain);
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
@@ -37,13 +29,9 @@ app.use("/src/api/info", router);
 app.use("/src/api/sector", sectorRouter);
 
 // testing api
+// Default CORS headers for all routes
 app.use((req, res, next) => {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://my-task-git-main-bishalchhetri.vercel.app",
-    "https://my-task-bishalkc.onrender.com",
-    "http://localhost:3000/"
-  );
+  res.header("Access-Control-Allow-Origin", "*");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
