@@ -38,7 +38,7 @@
 }
 
 .backgroundImg {
-  background-image: url("./images/back.jpg");
+  background-image: url("../public/back.jpg");
   background-size: cover;
 }
 
@@ -46,29 +46,4 @@
   border: 2px solid #282c34;
   backdrop-filter: blur(15px);
   background: rgba(255, 255, 255, 0.2);
-}
-
-/* Checkbox styles */
-.checkbox-container {
-  display: inline-block;
-  position: relative;
-}
-
-/* Hidden default checkbox */
-.hidden-checkbox {
-  display: none;
-}
-
-/* Custom checkbox appearance */
-.custom-checkbox {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  border: 1px solid #000;
-  transition: background-color 0.3s;
-}
-
-/* Change the background color when checked */
-.hidden-checkbox:checked + .custom-checkbox {
-  background-color: #000;
 }
